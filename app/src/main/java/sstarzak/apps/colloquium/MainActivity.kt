@@ -3,6 +3,7 @@ package sstarzak.apps.colloquium
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -18,6 +19,7 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
                     Greeting("Android")
+                    EntryList()
                 }
             }
         }
@@ -25,7 +27,22 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+fun EntryList() {
+        Column {
+            listOf(
+                "Item 1",
+                "Item 2",
+                "Item 3",
+                "Item 4",
+            ).forEach {
+                Greeting(name = it)
+            }
+        }
+}
+
+@Composable
 fun Greeting(name: String) {
+    Text(text = "Hello $name!")
     Text(text = "Hello $name!")
 }
 
